@@ -24,8 +24,7 @@ def cut(arr[], n , memo[]):
             return memo[n]
         else:
             i = 0
-            for i < n :
-                i++
+            for i range(i < n , i++) :
                 max = Math.max(max, arr[i]+ cut(arr, n-i-1, memo))
             memo[n] = max    
             return memo[n]
