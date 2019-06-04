@@ -1,8 +1,8 @@
-def cut_rod(p, n):
+def corta_haste(p, n):
     """Pega uma lista p de preços e o tamanho da barra n e retornar umas lista r e s.
     r[i] é o valor maximo  que voce pode pegar e s[i] é o tamanho do primeiro 
     pedaço de corte da barra tamanho i."""
-    # r[i] é o maximo di valor para a barra de tamanho i
+    # r[i] é o maximo de valor para a barra de tamanho i
     # r[i] = -1 significa que r[i] nao foi calculado ainda
     r = [-1]*(n + 1)
     r[0] = 0
@@ -23,21 +23,21 @@ def cut_rod(p, n):
     return r, s
  
  
-n = int(input('Entre com o tamanho da barra: '))
+    n = int(input('Entre com o tamanho da barra: '))
  
-# p[i] é o preco da barra de uma barra de tamanho i
-# p[0] não é necessario, entao está setado como none
-p = [None]
-for i in range(1, n + 1):
-    price = input('Entre com o preço de corte da barra {} em: '.format(i))
-    p.append(int(price))
+    # p[i] é o preco da barra de uma barra de tamanho i
+    # p[0] não é necessario, entao está setado como none
+    p = [None]
+    for i in range(1, n + 1):
+        preco = input('Entre com o preço de corte da barra {} em: '.format(i))
+        p.append(int(preco))
  
-r, s = cut_rod(p, n)
-print('O valor maximo obtido:', r[n])
-print('A barra precisa ser cortada no(s) tamanho(s) de ', end='')
-while n > 0:
-    print(s[n], end=' ')
-    n -= s[n]
+    r, s = corta_haste(p, n)
+    print('O valor maximo obtido:', r[n-1])
+    print('A barra precisa ser cortada no(s) tamanho(s) de ', end='')
+    while n > 0:
+        print(s[n], end=' ')
+        n -= s[n]
 
 #1. The user is prompted to enter the length of the rod n.
 #2. The user is then asked to enter the price for each length of rod.
