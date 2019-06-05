@@ -1,130 +1,37 @@
-def atividade(a, s, f, n):
-    A = [0]*n
-    A[1] = a[1]
-    k=1
-    iter = 1
 
-    for i in range(2, n+1):
-        if(s[i] >= f[k]):
-        #appending list A
-            iter = iter+1
-            A[iter] = a[i]
-            k=i
-
-
-#   '''
-#     Making first element of the list A (index 0) equal to iter
-#     just to know the length of the list when used in different function.
-#   '''
-    A[0] = iter;
-    return A
-
-if __name__ == '__main__':
-#     a = [0, 2, 3, 5, 1, 4]
-#     s = [0, 0, 1, 3, 4, 1]
-#     f = [0, 2, 3, 4, 6, 6]
-#     p = atividade(a, s, f, 5)
-
-    a = [0, 1 , 2 , 3 , 4 , 5]
-    s = [0, 1 , 3 , 0 , 5 , 6]
-    f = [0, 4 , 5 , 6 , 7 , 9]
-    p = atividade(a, s, f, 5)
-
-    for i in range(1, p[0]+1):
-        print(p[i])
-
-
-    # atividade 1 : s = 1 ; f = 4
-    # atividade 2 : s = 3 ; f = 5
-    # atividade 3 : s = 0 ; f = 6
-    # atividade 4 : s = 5 ; f = 7
-    # atividade 5 : s = 6 ; f = 9   
-
-
-# def atividade_sel(a,s,f):    
-#     S = {A[1]} 
-#     k = 1
-    
-#     n = A.length
-    
-#     for i = 2 to n:
-#        if s[i] ≥ f[k]: 
-#            S = S U {A[i]}
-#            k = i
-
-#     m = input(int("Digite: "))       
-    
-#     return S
-print("----------------------------------------------------------------------------")
-
-def find_maximum_activities(activity_list,start_time_list, finish_time_list):
-    
-    selected =[]
-
-
-    activity_tmp_list = [x for _,x in sorted(zip(finish_time_list,activity_list))]
-
-    #the first activity is always selected
-    i=0
-    #print(i)
-    selected.append(activity_tmp_list[i])
-
-    #consider rest of Activities
-    for j in range(1,len(activity_list)):
-
-        if start_time_list[j]>=finish_time_list[i]:
-            print(j)
-            selected.append(activity_tmp_list[j])
-            i=j
-    return selected
-
-activity_list=[1, 2, 3, 4, 5]
-start_time_list=[1, 3, 0, 5 , 6]
-finish_time_list=[4 , 5 , 6 ,7 ,9]
-
-print("Activities:",activity_list)
-print("Start time of the activities:",start_time_list)
-print("Finishing time of the activities:", finish_time_list)
-
-result=find_maximum_activities(activity_list,start_time_list, finish_time_list)
-print("The maximum set of activities that can be completed:",result)
-
-
-# """The following implementation assumes that the activities 
-# are already sorted according to their finish time"""
-  
-# """Prints a maximum set of activities that can be done by a 
-# single person, one at a time"""
-# n --> Total number of activities 
-# s[]--> An array that contains start time of all activities 
-# f[] --> An array that contains finish time of all activities 
   
 
 
 print("--------------------------------------------------------------------------------")
 
 
-def printMaxActivities(s, f ): 
+def MaxAtividades(s, f ):
     n = len(f) 
-    print("The following activities are selected")
+    print("As seguintes atividades são selecionadas:")
   
-    # The first activity is always selected 
+    # A primeira atividade sempre é selecionada
     i = 0
     print(i)
     
-    # Consider rest of the activities 
+    # Considere o resto das atividades
     for j in range(n): 
   
-        # If this activity has start time greater than 
-        # or equal to the finish time of previously 
-        # selected activity, then select it 
+        # Se essa atividade tem um começo maior que
+        # ou igual o final de tempo anterior
+        # da atividade selecionada, entao selecione ela
         if s[j] >= f[i]: 
             print(j) 
-            i = j 
+            i = j
+
+
   
-# Driver program to test above function 
-s = [1, 3, 0, 5, 8, 5] 
-f = [2, 4, 6, 7, 9, 9] 
-printMaxActivities(s, f) 
+    # Testes
+s = [1, 3, 0, 5, 8, 5]
+f = [2, 4, 6, 7, 9, 9]
+
+s = [1, 3, 0, 5, 6]
+f = [4, 5, 6, 7, 9]
+
+MaxAtividades(s, f)
   
-# This code is contributed by Nikhil Kumar Singh 
+

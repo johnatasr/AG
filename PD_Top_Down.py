@@ -1,45 +1,27 @@
+INF = 100000;
+r = [0] + [-1*INF]*5
 
-import math
+def max(x, y):
+  if x > y:
+    return x
+  return y
 
-# def cut(a, n, m):
-#     a = arr[]
-#     m = memo[]
-#     if n <= 0:
-#         return 0
-#         max= MIN_VALUE
-#         if memo[n] != null:
-#             return memo[n]
-#         else:
-#             i = 0
-#             for i range(i < n , i++) :
-#                 max = Math.max(max, arr[i]+ cut(arr, n-i-1, memo))
-#             memo[n] = max    
-#             return memo[n]
+def top_down_rod_cutting(c, n):
+  global r
+  if(r[n] >= 0):
+    return r[n]
 
-            
-# public static int cutRod(int arr[],int n,Integer memo[]){
-#     if(n<=0)
-#     return 0;
-#     int max=Integer.MIN_VALUE;
-#     if(memo[n]!=null)
-#     return memo[n];
-#     else{
-#         for(int i=0;i<n;i++)
-#         {
-#             max=Math.max(max,arr[i]+cutRod(arr,n-i-1,memo));
-#         }
-#         memo[n]=max;
-#         return memo[n];
-#     }
-# }
+  max_valor = -1*INF
 
-def cut_rod(p,n):
-    
-    
-    if(n == 0):
-        return 0
-    q = -(math.inf)
-   
-    for i range(i <= n , i++):
-        q = math.max(q, p[i] + cut_rod(p, n -1))
-    return q    
+  for i in range(1, n+1):
+    max_valor = max(max_valor, c[i] + top_down_rod_cutting(c, n-i))
+
+  r[n] = max_valor
+  return r[n]
+
+if __name__ == '__main__':
+  # list starting from 1, element at index 0 is fake
+  c = [0, 1, 2, 3, 5]
+  frase = "A melhor escolha é: "
+  print(frase)
+  print(top_down_rod_cutting(c, 4))
