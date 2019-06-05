@@ -1,4 +1,4 @@
-def cut_rod(p, n):
+def corte_haste(p, n):
     """Pegue uma lista p de preços e o comprimento da haste n e retorne as listas r e s.
     r [i] é a receita máxima que você pode obter e s [i] é o comprimento do
     primeira peça para cortar de uma haste de comprimento i."""
@@ -32,7 +32,7 @@ for i in range(1, n + 1):
     preco = input('Entre com o preco da haste de tamanho {} no: '.format(i))
     p.append(int(preco))
 
-r, s = cut_rod(p, n)
+r, s = corte_haste(p, n)
 print('O valor máximo que pode ser obtido:', r[n])
 print('A haste precisa ser cortada nos tamanhos: ', end='')
 while n > 0:
